@@ -6,22 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melly's App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <h1>Melly's App</h1>
-    <div id="name">{{ melly.name }}</div>
-    <div id="dob">{{ dob }}</div>
-    <div id="age">{{ age }} years</div>
-    <div id="breed">{{ breed }}</div>
-    <div id="color">{{ color }}</div>
-    <div id="weight">{{ melly.weight }} kg</div>
-    <div class="fedCheck">{{ fedCheck }} hours since last fed</div>
-    <div id="lastFed">{{ lastFed }}</div>
-    <a href="updateLastFed/">Set last fed</a>
-    <div class="poopedCheck">{{ poopedCheck }} hours since last pooped</div>
-    <div id="lastPooped">{{ lastPooped }}</div>
-    <a href="updateLastPooped/">Set last fed</a>
+    <div id="fullScreenContainer">
+        <div id="headingContainer">
+            <h1>Melly's App</h1>
+        </div>
+        <div id="clockContainer">
+            <div id="clockBlock">
+                <div id="photoMask">
+                    <img src="{% static 'mellys_photo.png' %}" alt="Melly's Photo" id="mellysPhoto">
+                </div>
+                <div id="outerLastFedCircle">
+                    <div class="segment" id="segment1" style="transform: rotate(0deg) skew(0deg)"></div>
+                    <div class="segment" id="segment2" style="transform: rotate(90deg) skew(90deg)"></div>
+                    <div class="segment" id="segment3" style="transform: rotate(180deg) skew(90deg)"></div>
+                    <div class="segment" id="segment4" style="transform: rotate(270deg) skew(90deg)"></div>
+                </div>
+                <div id="outerLastPoopedCircle">
+                    <div class="segment2" id="segment5" style="transform: rotate(0deg) skew(0deg)"></div>
+                    <div class="segment2" id="segment6" style="transform: rotate(90deg) skew(90deg)"></div>
+                    <div class="segment2" id="segment7" style="transform: rotate(180deg) skew(90deg)"></div>
+                    <div class="segment2" id="segment8" style="transform: rotate(270deg) skew(90deg)"></div>
+                </div>
+                <div id="innerLastPoopedCircle">
+                </div>
+                <div id="lastFed"><i class="fa-solid fa-drumstick-bite"></i></i></div>
+                <div id="lastPooped"><i class="fa-solid fa-poo"></i></div>
+                <div id="now">Now</div>
+                <div class="clockNumber" id="clock12">12</div>
+                <div class="clockNumber" id="clock1">1</div>
+                <div class="clockNumber" id="clock2">2</div>
+                <div class="clockNumber" id="clock3">3</div>
+                <div class="clockNumber" id="clock4">4</div>
+                <div class="clockNumber" id="clock5">5</div>
+                <div class="clockNumber" id="clock6">6</div>
+                <div class="clockNumber" id="clock7">7</div>
+                <div class="clockNumber" id="clock8">8</div>
+                <div class="clockNumber" id="clock9">9</div>
+                <div class="clockNumber" id="clock10">10</div>
+                <div class="clockNumber" id="clock11">11</div>
+            </div>
+        </div>
+        <div id="buttonContainer">
+            <div id="mellyAte">
+                <div id="icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                <div id="iconText">Melly ate!</div>
+            </div>
+            <div id="mellyPooped">
+                <div id="icon"><i class="fa-solid fa-poo"></i></div>
+                <div id="iconText">Melly pooped!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lastFedHour = {{ lastFedHour }};
+        const lastPoopedHour = {{ lastPoopedHour }};
+        const nowHour = {{ nowHour }};
+    </script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>

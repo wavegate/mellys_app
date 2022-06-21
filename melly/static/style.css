@@ -3,40 +3,66 @@
   margin: 0px;
   padding: 0px;
   font-family: "Montserrat", sans-serif;
+  overflow: hidden;
 }
 
-img {
-  max-width: 300px;
+body {
+  color: #25383c;
+  background-color: ghostwhite;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 120px;
+#fullScreenContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
 }
 
-.mask {
+#headingContainer {
+  height: 25vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+  font-size: 1.5rem;
+}
+
+#clockContainer {
+  height: 50vh;
+  background-color: ghostwhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttonContainer {
+  height: 25vh;
+}
+
+#clockBlock {
+  position: relative;
+}
+
+#photoMask {
+  position: relative;
+  width: 100%;
+  height: 100%;
   -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0) 50%);
   mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0) 50%);
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  left: 30px;
+  z-index: 2;
 }
 
-.circular-progress {
-  position: absolute;
-  display: inline-block;
-  top: 184px;
-  left: 55px;
-  z-index: -1;
+#mellysPhoto {
+  max-width: 100%;
+  height: auto;
 }
 
-.circular-progress-circle {
-  position: relative;
-  width: 250px;
-  height: 250px;
+#outerLastFedCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   border-radius: 50%;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .segment {
@@ -45,19 +71,36 @@ h1 {
   left: 50%;
   width: 100vw;
   height: 100vw;
-  background: blue;
+  background: #a8e6cf;
   transform-origin: 0 0;
 }
 
-.circular-progress-inner {
+#outerLastPoopedCircle {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 225px;
-  height: 225px;
-  transform: translateX(-50%) translateY(-50%);
-  background: #fff;
   border-radius: 50%;
+  z-index: 0;
+}
+
+.segment2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vw;
+  background: #ffaaa5;
+  transform-origin: 0 0;
+}
+
+#innerLastPoopedCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+  z-index: 0;
+  background-color: white;
 }
 
 #dot-box {
@@ -70,47 +113,84 @@ h1 {
 }
 
 #lastFed,
+#lastPooped,
 #now {
   position: absolute;
   transform: translate(-50%, -50%);
   background-color: white;
-  border: 2px solid black;
-  border-radius: 15px;
-  display: inline-block;
+  border: 2px solid #25383c;
+  display: block;
+  z-index: 4;
+}
+
+#now {
   padding: 8px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+#lastFed,
+#lastPooped {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+#lastFed {
+  color: green;
+}
+
+#lastPooped {
+  color: brown;
+}
+
+.clockNumber {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: block;
+  z-index: 3;
+  color: white;
+  text-shadow: 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: visible;
 }
 
 #mellyAte,
 #mellyPooped {
-  position: fixed;
-  border-radius: 50%;
-  width: 120px;
-  top: 50%;
-  left: 30%;
-  height: 100px;
-  background-color: ghostwhite;
+  margin-top: -90px;
+  border: 2px solid #25383c;
+  border-radius: 30px;
+  width: 40%;
+  height: 80%;
   display: flex;
+  flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
-  transform: translate(-50%, -50%);
-  z-index: 6;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 #mellyAte {
-  left: 30%;
+  background-color: #a8e6cf7c;
 }
 
 #mellyPooped {
-  left: 70%;
+  background-color: #ffa9a581;
 }
 
-#modalBackdrop {
-  position: fixed;
-  top: 0px;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(0, 0, 0, 0.5);
-  z-index: 5;
+#mellyAte:hover {
+  background-color: #a8e6cf;
+}
+
+#mellyPooped:hover {
+  background-color: #ffa9a5;
 }
