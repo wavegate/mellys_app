@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melly's App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Melly</h1>
+    <div class="mask">
+        <img src="{% static 'mellys_photo.png' %}" alt="Melly's Photo">
+    </div>
+    <div class="circular-progress">
+        <div class="circular-progress-circle" id="circular-progress-circle">
+            <div class="segment" id="segment1" style="transform: rotate(0deg) skew(0deg)"></div>
+            <div class="segment" id="segment2" style="transform: rotate(90deg) skew(90deg)"></div>
+            <div class="segment" id="segment3" style="transform: rotate(180deg) skew(90deg)"></div>
+            <div class="segment" id="segment4" style="transform: rotate(270deg) skew(90deg)"></div>
+        </div>
+        <div class="circular-progress-inner"></div>
+    </div>
+    <div id="dot-box">
+        <div id="lastFed">{{ lastFed }}</div>
+        <div id="now">Now</div>
+    </div>
+    <div id="mellyAte">Melly ate</div>
+    <div id="mellyPooped">Melly pooped</div>
+    <div id="modalBackdrop"></div>
+
+    <script>
+        const lastFedHour = {{ lastFedHour }};
+        const nowHour = {{ nowHour }};
+    </script>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>
