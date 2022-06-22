@@ -24,7 +24,11 @@ body {
   align-items: flex-end;
   justify-content: center;
   overflow: visible;
-  font-size: 1.5rem;
+  font-size: min(4vw, 4vh);
+}
+
+#headingContainer > h1 {
+  text-align: center;
 }
 
 #clockContainer {
@@ -162,13 +166,14 @@ body {
   border: 2px solid #25383c;
   border-radius: 30px;
   width: 40%;
-  height: 80%;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: min(5vw, 5vh);
+  overflow: visible;
+  padding: 20px 0px;
 }
 
 #mellyAte {
@@ -189,5 +194,13 @@ body {
 
 #lastAteText,
 #lastPoopedText {
-  font-size: 0.8rem;
+  position: relative;
+  font-size: min(2.5vw, 2.5vh);
+  overflow: visible;
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
