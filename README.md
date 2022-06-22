@@ -1,6 +1,7 @@
 # Melly's App
 
 View demo: https://serene-inlet-42709.herokuapp.com/
+(Please give Heroku's hobbyist dyno a minute to load)
 
 Problems faced/concepts practiced:
 
