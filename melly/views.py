@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Dogs
 from django.urls import reverse
-from datetime import datetime, date
+from datetime import date
 from django.utils import timezone
 import re
 
@@ -15,8 +15,8 @@ def index(request):
     color = melly.color.capitalize()
     convertedLastFed = timezone.localtime(melly.lastFed)
     convertedLastPooped = timezone.localtime(melly.lastPooped)
-    lastFed = convertedLastFed.strftime(r"%#I:%M %p")
-    lastPooped = convertedLastPooped.strftime(r"%#I:%M on %#m/%#d/%Y")
+    lastFed = convertedLastFed.strftime(r"%#I:%M %p on %#m/%#d/%Y")
+    lastPooped = convertedLastPooped.strftime(r"%#I:%M %p on %#m/%#d/%Y")
     lastFedHour = (convertedLastFed.hour + melly.lastFed.minute/60) % 12
     lastPoopedHour = (convertedLastPooped.hour + melly.lastPooped.minute/60) % 12
     nowHour = (timezone.localtime(timezone.now()).hour + timezone.localtime(timezone.now()).minute/60) % 12
@@ -27,10 +27,10 @@ def index(request):
         'breed': breed,
         'color': color,
         'lastFed': lastFed,
+        'lastPooped': lastPooped,
         'lastFedHour': lastFedHour,
         'lastPoopedHour': lastPoopedHour,
         'nowHour': nowHour,
-        'lastPooped': lastPooped,
     }
     return HttpResponse(template.render(context, request))
 
